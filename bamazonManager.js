@@ -39,7 +39,7 @@ function addProduct(){
             },
             {
                 
-                type: "rawlist",
+                type: "list",
                 name: "department_name",
                 choices: function(){
                     var choiceArray = [];
@@ -149,7 +149,7 @@ function updateInventory(){
         // update database based on user input
         inquirer.prompt([
             {
-                type: "rawlist",
+                type: "list",
                 name: "choice",
                 choices: function(){
                     var choiceArray = [];

@@ -52,7 +52,7 @@ function addDepartment(){
 // R - View Product Sales by Department
 function viewProductSales(){
     console.log("Displaying all sales by department...\n");
-    connection.query(`SELECT d.department_id, d.department_name, d.over_head_costs, SUM(p.product_sales) AS product_sales, (SUM(p.product_sales)-d.over_head_costs) AS total_profit
+    connection.query(`SELECT d.department_id, d.department_name, d.overhead_costs, SUM(p.product_sales) AS product_sales, (SUM(p.product_sales)-d.overhead_costs) AS total_profit
     FROM departments AS d 
     LEFT JOIN products AS p ON d.department_name=p.department_name
     GROUP BY d.department_id`,
@@ -67,7 +67,7 @@ function viewProductSales(){
         res.forEach(item => {
             t.cell("Department ID", item.department_id);
             t.cell("Department Name", item.department_name);
-            t.cell("Over Head Costs", item.over_head_costs, Table.number(2));
+            t.cell("Over Head Costs", item.overhead_costs, Table.number(2));
             t.cell("Product Sales", item.product_sales, Table.number(2));
             t.cell("Total Profit", item.total_profit, Table.number(2));
             t.newRow();

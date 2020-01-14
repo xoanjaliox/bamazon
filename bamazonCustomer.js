@@ -79,7 +79,7 @@ function orderProducts(allProducts){
     // get user input, check input against database, update database if necessary
     inquirer.prompt([
         {
-            type: "rawlist",
+            type: "list",
             name: "choice",
             choices: function(){
                 var choiceArray = [];
